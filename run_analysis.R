@@ -47,7 +47,9 @@ run_analysis <- function() {
     grouped_means <<- dat %>% 
         group_by(activity, subject) %>% 
         summarise_each(funs(mean))
+    
+    write.table(grouped_means, file = "grouped_means.txt", row.names = FALSE)
 }
 
 run_analysis()
-#write.table(grouped_means, file = "grouped_means.txt", row.names = FALSE)
+
